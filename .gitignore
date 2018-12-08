@@ -14,4 +14,4 @@
 # Dev env
 .DS_Store
 
-vender/*
+vendor/*
