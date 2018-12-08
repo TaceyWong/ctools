@@ -1,20 +1,47 @@
 package tools
 
+/*
+htpasswd tool
+*/
+
 import (
 	"fmt"
 
+	"github.com/urfave/cli"
 	"gopkg.in/AlecAivazis/survey.v1"
+	// surveyCore "gopkg.in/AlecAivazis/survey.v1/core"
 )
 
-func init() {
 
-}
 // https://github.com/tg123/go-htpasswd
 // https://github.com/ByteFlinger/htpasswd/blob/master/htpasswd.go
 
+// HtpasswdCMD HTPasswd cli command
+var HtpasswdCMD = cli.Command{
+	Name:    "htpasswd",
+	Aliases: []string{"hp"},
+	Usage:   "gen htpassword",
+	Flags: []cli.Flag{
+		cli.StringFlag{
+			Name:  "lang, l",
+			Value: "english",
+			Usage: "Language for this",
+		},
+		cli.StringFlag{
+			Name:  "config, c",
+			Usage: "Load configuration from `FILE`",
+		},
+	},
+	Action: func(c *cli.Context) error {
+		HTPasswd()
+		return nil
+	},
+}
+
 // HTPasswd Gen htpasswd
 func HTPasswd() {
-	// the questions to ask
+	// surveyCore.QuestionIcon = "😵"
+	// surveyCore.HelpIcon = "x"
 	var qs = []*survey.Question{
 		{
 			Name: "username",
@@ -30,7 +57,7 @@ func HTPasswd() {
 				Message: "Choose a crypto type:",
 				Options: []string{"Sha-1", "Md5", "Crypt"},
 				Default: "Sha-1",
-				Help:    "The crypto type you want to apply",
+				Help:    "Md5:Apache only;Sha-1:Netscape and Apache ;Crypt:all Unix host",
 			},
 		},
 		{
@@ -39,8 +66,8 @@ func HTPasswd() {
 				Message: "Please type your password",
 				Help:    "The password you want to used for this user",
 			},
-			
-			Validate: survey.Required,
+
+			Validate: survey.MinLength(6),
 		},
 	}
 	result := struct {
