@@ -1,5 +1,7 @@
 # ctools
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/TaceyWong/ctools)](https://goreportcard.com/report/github.com/TaceyWong/ctools)
+
 Coder👨‍💻 Tools🛠
 
 **Now：Just a Test Repo**
