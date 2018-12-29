@@ -83,6 +83,7 @@ func ctools() {
 	app.Commands = append(app.Commands, tools.IMailCMD)
 	app.Commands = append(app.Commands, tools.HTTPCodeCMD)
 	app.Commands = append(app.Commands, tools.RequestCMD)
+	app.Commands = append(app.Commands, tools.ShortMeCMD)
 	sort.Sort(cli.CommandsByName(app.Commands))
 	sort.Sort(cli.FlagsByName(app.Flags))
 	err := app.Run(os.Args)
