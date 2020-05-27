@@ -3,7 +3,7 @@
  * @Author: WangXinyong/TaceyWong
  * @Date: 2020-05-27 14:28:18
  * @LastEditors: WangXinyong/TaceyWong
- * @LastEditTime: 2020-05-27 15:17:59
+ * @LastEditTime: 2020-05-27 15:21:44
  * @FilePath: /ctools/tools/dev/whois.go
  */
 package dev
@@ -20,6 +20,7 @@ var WhoisCMD = cli.Command{
 	Name:    "whois",
 	Aliases: []string{"ws"},
 	Usage:   "查询Whois信息",
+	Category: "tools for dev",
 	Action:  Whois,
 }
 

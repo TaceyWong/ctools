@@ -1,3 +1,11 @@
+/*
+ * @Description: 填写描述
+ * @Author: WangXinyong/TaceyWong
+ * @Date: 2020-05-27 14:19:27
+ * @LastEditors: WangXinyong/TaceyWong
+ * @LastEditTime: 2020-05-27 14:19:28
+ * @FilePath: /ctools/tools/htpasswd.go
+ */
 package tools
 
 /*
@@ -12,7 +20,6 @@ import (
 	// surveyCore "gopkg.in/AlecAivazis/survey.v1/core"
 )
 
-
 // https://github.com/tg123/go-htpasswd
 // https://github.com/ByteFlinger/htpasswd/blob/master/htpasswd.go
 
@@ -20,7 +27,7 @@ import (
 var HtpasswdCMD = cli.Command{
 	Name:    "htpasswd",
 	Aliases: []string{"hp"},
-	Usage:   "gen htpassword",
+	Usage:   "gen httpassword",
 	Flags: []cli.Flag{
 		cli.StringFlag{
 			Name:  "lang, l",
