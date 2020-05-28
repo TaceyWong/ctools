@@ -3,7 +3,7 @@
  * @Author: WangXinyong/TaceyWong
  * @Date: 2020-05-27 14:49:56
  * @LastEditors: WangXinyong/TaceyWong
- * @LastEditTime: 2020-05-27 14:51:03
+ * @LastEditTime: 2020-05-28 14:18:56
  * @FilePath: /ctools/ctools.go
  */ 
 package main
@@ -17,6 +17,8 @@ import (
 
 	"github.com/TaceyWong/ctools/tools"
 	"github.com/TaceyWong/ctools/tools/dev"
+	"github.com/TaceyWong/ctools/tools/fun"
+
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
 	"github.com/urfave/cli"
@@ -94,6 +96,7 @@ func ctools() {
 	app.Commands = append(app.Commands, tools.RequestCMD)
 	app.Commands = append(app.Commands, tools.ShortMeCMD)
 	app.Commands = append(app.Commands,dev.WhoisCMD)
+	app.Commands = append(app.Commands,fun.QRCMD)
 	sort.Sort(cli.CommandsByName(app.Commands))
 	sort.Sort(cli.FlagsByName(app.Flags))
 	err := app.Run(os.Args)
