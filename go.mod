@@ -3,6 +3,7 @@ module github.com/TaceyWong/ctools
 go 1.13
 
 require (
+	github.com/GeertJohan/go.rice v1.0.0
 	github.com/c-bata/go-prompt v0.2.3
 	github.com/fsnotify/fsnotify v1.4.7
 	github.com/jroimartin/gocui v0.4.0
