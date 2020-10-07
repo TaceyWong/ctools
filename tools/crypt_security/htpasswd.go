@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-05-27 14:19:28
  * @FilePath: /ctools/tools/htpasswd.go
  */
-package tools
+package crypt_security
 
 /*
 htpasswd tool
@@ -39,6 +39,7 @@ var HtpasswdCMD = cli.Command{
 			Usage: "Load configuration from `FILE`",
 		},
 	},
+	Category: "Cryptography & Security",
 	Action: func(c *cli.Context) error {
 		HTPasswd()
 		return nil

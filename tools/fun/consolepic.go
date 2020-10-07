@@ -9,6 +9,8 @@
 package fun
 
 
+/* convert pixel to console-color-lable*/
+
 import (
 	"fmt"
 	"image"
@@ -17,7 +19,8 @@ import (
 	"net/http"
 	"os"
 	"strings"
-
+    
+    "github.com/urfave/cli"
 	"github.com/nfnt/resize"
 )
 
@@ -85,4 +88,16 @@ func ConvertFromURL(url string, cols int) (output string, err error) {
 		return "", err
 	}
 	return convertImage(resizeImage(img, cols)), nil
+}
+
+
+var ConsolePicCMD = cli.Command{
+	Name:     "consolepic",
+	Aliases:  []string{"console_p"},
+	Usage:    "show a picture in console",
+	Category: "Fun",
+	Action: func(c *cli.Context) error {
+		fmt.Println(ConvertFromURL(c.Args().Get(0), 128))
+		return nil
+	},
 }

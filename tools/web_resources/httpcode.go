@@ -1,4 +1,4 @@
-package tools
+package web_resources
 
 import (
 	"fmt"

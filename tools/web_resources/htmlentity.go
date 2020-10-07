@@ -1,4 +1,4 @@
-package dev
+package web_resources
 
 /*
 原始字符	entity	原始字符	entity

@@ -16,6 +16,19 @@ import (
 	"time"
 
 	"github.com/TaceyWong/ctools/tools"
+	"github.com/TaceyWong/ctools/tools/converters"
+	"github.com/TaceyWong/ctools/tools/code_minifiers_beautifiers"
+	"github.com/TaceyWong/ctools/tools/crypt_security"
+	"github.com/TaceyWong/ctools/tools/encoders_decoders"
+	"github.com/TaceyWong/ctools/tools/formatters"
+	"github.com/TaceyWong/ctools/tools/string_utils"
+	"github.com/TaceyWong/ctools/tools/validators"
+	"github.com/TaceyWong/ctools/tools/web_resources"
+	"github.com/TaceyWong/ctools/tools/fun"
+
+
+
+
 	. "github.com/TaceyWong/ctools/tools/dev/asciiflow2"
 
 	"github.com/fsnotify/fsnotify"
@@ -66,7 +79,7 @@ func ctools() {
 			Name: "All Contributors",
 		},
 	}
-	app.Copyright = "(c) 2018 - Forever N/A"
+	app.Copyright = "© 2018 - Forever Tacey Wong and Contributors"
 	app.Usage = "Coder Toolbox,Programmer General Tools"
 	// app.UsageText = "contrive - demonstrating the available API"
 	app.EnableBashCompletion = true
@@ -89,8 +102,92 @@ func ctools() {
 	}
 
 	app.Commands = []cli.Command{}
+
+	// Dev-Tools
 	app.Commands = append(app.Commands, AsciiFlowCMD)
 	app.Commands = append(app.Commands, tools.IMailCMD)
+	app.Commands = append(app.Commands, tools.RequestCMD)
+	app.Commands = append(app.Commands, tools.ShortMeCMD)
+
+
+	// Converters
+	app.Commands = append(app.Commands, converters.JSON2GoCMD)
+	app.Commands = append(app.Commands, converters.JSON2XMLCMD)
+	app.Commands = append(app.Commands, converters.CSV2JSONCMD)
+	app.Commands = append(app.Commands, converters.CSV2XMLCMD)
+	app.Commands = append(app.Commands, converters.XML2JSONCMD)
+	app.Commands = append(app.Commands, converters.CURL2GoCMD)
+	app.Commands = append(app.Commands, converters.URL2BTCMD)
+	app.Commands = append(app.Commands, converters.XML2XSDCMD)
+	app.Commands = append(app.Commands, converters.Timestamp2DateCMD)
+	app.Commands = append(app.Commands, converters.XML2XSLCMD)
+
+	// Code Minifiers&Beautifiers
+	app.Commands = append(app.Commands, code_minifiers_beautifiers.CSSBeautifierCMD)
+	app.Commands = append(app.Commands, code_minifiers_beautifiers.CSSMinifierCMD)
+	app.Commands = append(app.Commands, code_minifiers_beautifiers.JavascriptBeautifierCMD)
+	app.Commands = append(app.Commands, code_minifiers_beautifiers.JavascriptMinifierCMD)
+
+    // Crypt & Security
+	app.Commands = append(app.Commands, crypt_security.DigesterCMD)
+	app.Commands = append(app.Commands, crypt_security.HMACGeneratorCMD)
+	app.Commands = append(app.Commands, crypt_security.HtpasswdCMD)
+	app.Commands = append(app.Commands, crypt_security.MD5GeneratorCMD)
+	app.Commands = append(app.Commands, crypt_security.SHA256GeneratorCMD)
+	app.Commands = append(app.Commands, crypt_security.SHA512GeneratorCMD)
+
+    // Encoders & Decoders
+	app.Commands = append(app.Commands, encoders_decoders.Base64CMD)
+	app.Commands = append(app.Commands, encoders_decoders.QRCodeCMD)
+	app.Commands = append(app.Commands, encoders_decoders.URLEncodeDecodeCMD)
+
+    // Formatters
+	app.Commands = append(app.Commands, formatters.HTMLFormatCMD)
+	app.Commands = append(app.Commands, formatters.JSONFormatCMD)
+	app.Commands = append(app.Commands, formatters.NginxConfigFormatCMD)
+	app.Commands = append(app.Commands, formatters.SQLFormatCMD)
+	app.Commands = append(app.Commands, formatters.XMLFormatCMD)
+
+	// String Utils
+	app.Commands = append(app.Commands, string_utils.StrUtilCMD)
+	app.Commands = append(app.Commands, string_utils.CSVEscapeCMD)
+	app.Commands = append(app.Commands, string_utils.HTMLEscapeCMD)
+	app.Commands = append(app.Commands, string_utils.JSONEscapeCMD)
+	app.Commands = append(app.Commands, string_utils.SQLEscapeCMD)
+	app.Commands = append(app.Commands, string_utils.XMLEscapeCMD)
+	app.Commands = append(app.Commands, string_utils.JavaDotNetEscapeCMD)
+
+	// Validators
+	app.Commands = append(app.Commands, validators.CronGenCMD)
+	app.Commands = append(app.Commands, validators.HTMLValidCMD)
+	app.Commands = append(app.Commands, validators.JSONValidCMD)
+	app.Commands = append(app.Commands, validators.RegexTestCMD)
+	app.Commands = append(app.Commands, validators.XMLValidCMD)
+	app.Commands = append(app.Commands, validators.XPathTestCMD)
+
+
+	// Web Resources
+	app.Commands = append(app.Commands, web_resources.CanadaProvinceCMD)
+	app.Commands = append(app.Commands, web_resources.ChinaProvinceCMD)
+	app.Commands = append(app.Commands, web_resources.HTMLEntitiesCMD)
+	app.Commands = append(app.Commands, web_resources.HTTPCodeCMD)
+	app.Commands = append(app.Commands, web_resources.I18nCMD)
+	app.Commands = append(app.Commands, web_resources.ISOCountryListCMD)
+	app.Commands = append(app.Commands, web_resources.LessCompilerCMD )
+	app.Commands = append(app.Commands, web_resources.LoremLpsumGeneratorCMD)
+	app.Commands = append(app.Commands, web_resources.MexcioStateCMD)
+	app.Commands = append(app.Commands, web_resources.MIMETypeListCMD)
+	app.Commands = append(app.Commands, web_resources.SassCompilerCMD)
+	app.Commands = append(app.Commands, web_resources.TimezoneListCMD)
+	app.Commands = append(app.Commands, web_resources.URLParserCMD)
+	app.Commands = append(app.Commands, web_resources.USAStateCMD)
+
+
+    // Fun
+	app.Commands = append(app.Commands, fun.ConsolePicCMD)
+
+
+
 	sort.Sort(cli.CommandsByName(app.Commands))
 	sort.Sort(cli.FlagsByName(app.Flags))
 	err := app.Run(os.Args)
