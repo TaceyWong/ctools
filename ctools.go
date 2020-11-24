@@ -135,6 +135,8 @@ func ctools() {
 	app.Commands = append(app.Commands, crypt_security.MD5GeneratorCMD)
 	app.Commands = append(app.Commands, crypt_security.SHA256GeneratorCMD)
 	app.Commands = append(app.Commands, crypt_security.SHA512GeneratorCMD)
+	app.Commands = append(app.Commands, crypt_security.JWTRS256GeneratorCMD)
+
 
     // Encoders & Decoders
 	app.Commands = append(app.Commands, encoders_decoders.Base64CMD)
