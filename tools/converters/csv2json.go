@@ -1,6 +1,6 @@
 package converters
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 // CSV2JSONCMD csv转json命令
 var CSV2JSONCMD = cli.Command{

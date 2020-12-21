@@ -1,6 +1,6 @@
 package string_utils
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var HTMLEscapeCMD = cli.Command{
 	Name:     "html_escape",

@@ -1,6 +1,6 @@
 package string_utils
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var JSONEscapeCMD = cli.Command{
 	Name:     "json_escape",

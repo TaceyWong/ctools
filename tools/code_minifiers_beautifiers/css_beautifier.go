@@ -1,6 +1,6 @@
 package code_minifiers_beautifiers
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 // CSSBeautifierCMD css_beauty command
 var CSSBeautifierCMD = cli.Command{

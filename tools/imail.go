@@ -8,20 +8,20 @@ import (
 	"strings"
 
 	"github.com/jroimartin/gocui"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 var IMailCMD = cli.Command{
 	Name:    "imail",
 	Aliases: []string{"im"},
-	Usage:   "send email",
+	Usage:   "发送邮件",
 	Flags: []cli.Flag{
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:  "lang, l",
 			Value: "english",
 			Usage: "Language for this",
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:  "config, c",
 			Usage: "Load configuration from `FILE`",
 		},

@@ -13,7 +13,6 @@ import (
 	"log"
 	"os"
 	"sort"
-	"time"
 
 	"github.com/TaceyWong/ctools/tools"
 	"github.com/TaceyWong/ctools/tools/code_minifiers_beautifiers"
@@ -30,7 +29,7 @@ import (
 
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 func show() {
@@ -74,123 +73,123 @@ func ctools() {
 	app := cli.NewApp()
 	app.Name = "ctools"
 	app.Version = "0.0.1dev"
-	app.Compiled = time.Now()
-	app.Authors = []cli.Author{
-		cli.Author{
+	app.Compiled = app.Compiled.UTC().Local()
+	app.Authors = []*cli.Author{
+		{
 			Name:  "Tacey Wong",
 			Email: "xinyong.wang@qq.com",
 		},
-		cli.Author{
-			Name: "All Contributors",
+		{
+			Name: "所有贡献者",
 		},
 	}
-	app.Copyright = "© 2018 - Forever Tacey Wong and Contributors"
+	app.Copyright = "© 2018 - Forever Tacey Wong & 所有贡献者"
 	app.Usage = "Coder Toolbox,Programmer General Tools"
 	// app.UsageText = "contrive - demonstrating the available API"
 	app.EnableBashCompletion = true
-	app.Action = func(c *cli.Context) error {
-		show()
-		return nil
-	}
 
 	app.Flags = []cli.Flag{
-		cli.StringFlag{
-			Name:   "lang, l",
-			Value:  "english",
-			Usage:  "language for the app",
-			EnvVar: "CTOOLS_LANG",
+		&cli.BoolFlag{
+			Name:    "interactive",
+			Aliases: []string{"i"},
+			Usage:   "使用交互式模式",
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
+			Name:    "lang, l",
+			Value:   "english",
+			Usage:   "应用语言",
+			EnvVars: []string{"CTOOLS_LANG"},
+		},
+		&cli.StringFlag{
 			Name:  "config, c",
-			Usage: "load configuration from `FILE`",
+			Usage: "从`文件`加载配置",
 		},
 	}
 
-	app.Commands = []cli.Command{}
+	app.Commands = []*cli.Command{
+		// Dev-Tools
+		&AsciiFlowCMD,
+		&tools.IMailCMD,
+		&tools.RequestCMD,
+		&tools.ShortMeCMD,
 
-	// Dev-Tools
-	app.Commands = append(app.Commands, AsciiFlowCMD)
-	app.Commands = append(app.Commands, tools.IMailCMD)
-	app.Commands = append(app.Commands, tools.RequestCMD)
-	app.Commands = append(app.Commands, tools.ShortMeCMD)
+		&converters.JSON2GoCMD,
+		&converters.JSON2XMLCMD,
+		&converters.CSV2JSONCMD,
+		&converters.CSV2XMLCMD,
+		&converters.XML2JSONCMD,
+		&converters.CURL2GoCMD,
+		&converters.URL2BTCMD,
+		&converters.XML2XSDCMD,
+		&converters.Timestamp2DateCMD,
+		&converters.XML2XSLCMD,
 
-	// Converters
-	app.Commands = append(app.Commands, converters.JSON2GoCMD)
-	app.Commands = append(app.Commands, converters.JSON2XMLCMD)
-	app.Commands = append(app.Commands, converters.CSV2JSONCMD)
-	app.Commands = append(app.Commands, converters.CSV2XMLCMD)
-	app.Commands = append(app.Commands, converters.XML2JSONCMD)
-	app.Commands = append(app.Commands, converters.CURL2GoCMD)
-	app.Commands = append(app.Commands, converters.URL2BTCMD)
-	app.Commands = append(app.Commands, converters.XML2XSDCMD)
-	app.Commands = append(app.Commands, converters.Timestamp2DateCMD)
-	app.Commands = append(app.Commands, converters.XML2XSLCMD)
+		&code_minifiers_beautifiers.CSSBeautifierCMD,
+		&code_minifiers_beautifiers.CSSMinifierCMD,
+		&code_minifiers_beautifiers.JavascriptBeautifierCMD,
+		&code_minifiers_beautifiers.JavascriptMinifierCMD,
 
-	// Code Minifiers&Beautifiers
-	app.Commands = append(app.Commands, code_minifiers_beautifiers.CSSBeautifierCMD)
-	app.Commands = append(app.Commands, code_minifiers_beautifiers.CSSMinifierCMD)
-	app.Commands = append(app.Commands, code_minifiers_beautifiers.JavascriptBeautifierCMD)
-	app.Commands = append(app.Commands, code_minifiers_beautifiers.JavascriptMinifierCMD)
+		&crypt_security.DigesterCMD,
+		&crypt_security.HMACGeneratorCMD,
+		&crypt_security.HtpasswdCMD,
+		&crypt_security.MD5GeneratorCMD,
+		&crypt_security.SHA256GeneratorCMD,
+		&crypt_security.SHA512GeneratorCMD,
+		&crypt_security.JWTRS256GeneratorCMD,
 
-	// Crypt & Security
-	app.Commands = append(app.Commands, crypt_security.DigesterCMD)
-	app.Commands = append(app.Commands, crypt_security.HMACGeneratorCMD)
-	app.Commands = append(app.Commands, crypt_security.HtpasswdCMD)
-	app.Commands = append(app.Commands, crypt_security.MD5GeneratorCMD)
-	app.Commands = append(app.Commands, crypt_security.SHA256GeneratorCMD)
-	app.Commands = append(app.Commands, crypt_security.SHA512GeneratorCMD)
-	app.Commands = append(app.Commands, crypt_security.JWTRS256GeneratorCMD)
+		&encoders_decoders.Base64CMD,
+		&encoders_decoders.QRCodeCMD,
+		&encoders_decoders.URLEncodeDecodeCMD,
 
-	// Encoders & Decoders
-	app.Commands = append(app.Commands, encoders_decoders.Base64CMD)
-	app.Commands = append(app.Commands, encoders_decoders.QRCodeCMD)
-	app.Commands = append(app.Commands, encoders_decoders.URLEncodeDecodeCMD)
+		&formatters.HTMLFormatCMD,
+		&formatters.JSONFormatCMD,
+		&formatters.NginxConfigFormatCMD,
+		&formatters.SQLFormatCMD,
+		&formatters.XMLFormatCMD,
 
-	// Formatters
-	app.Commands = append(app.Commands, formatters.HTMLFormatCMD)
-	app.Commands = append(app.Commands, formatters.JSONFormatCMD)
-	app.Commands = append(app.Commands, formatters.NginxConfigFormatCMD)
-	app.Commands = append(app.Commands, formatters.SQLFormatCMD)
-	app.Commands = append(app.Commands, formatters.XMLFormatCMD)
+		&string_utils.StrUtilCMD,
+		&string_utils.CSVEscapeCMD,
+		&string_utils.HTMLEscapeCMD,
+		&string_utils.JSONEscapeCMD,
+		&string_utils.SQLEscapeCMD,
+		&string_utils.XMLEscapeCMD,
+		&string_utils.JavaDotNetEscapeCMD,
 
-	// String Utils
-	app.Commands = append(app.Commands, string_utils.StrUtilCMD)
-	app.Commands = append(app.Commands, string_utils.CSVEscapeCMD)
-	app.Commands = append(app.Commands, string_utils.HTMLEscapeCMD)
-	app.Commands = append(app.Commands, string_utils.JSONEscapeCMD)
-	app.Commands = append(app.Commands, string_utils.SQLEscapeCMD)
-	app.Commands = append(app.Commands, string_utils.XMLEscapeCMD)
-	app.Commands = append(app.Commands, string_utils.JavaDotNetEscapeCMD)
+		&validators.CronGenCMD,
+		&validators.HTMLValidCMD,
+		&validators.JSONValidCMD,
+		&validators.RegexTestCMD,
+		&validators.XMLValidCMD,
+		&validators.XPathTestCMD,
 
-	// Validators
-	app.Commands = append(app.Commands, validators.CronGenCMD)
-	app.Commands = append(app.Commands, validators.HTMLValidCMD)
-	app.Commands = append(app.Commands, validators.JSONValidCMD)
-	app.Commands = append(app.Commands, validators.RegexTestCMD)
-	app.Commands = append(app.Commands, validators.XMLValidCMD)
-	app.Commands = append(app.Commands, validators.XPathTestCMD)
+		&web_resources.CanadaProvinceCMD,
+		&web_resources.ChinaProvinceCMD,
+		&web_resources.HTMLEntitiesCMD,
+		&web_resources.HTTPCodeCMD,
+		&web_resources.I18nCMD,
+		&web_resources.ISOCountryListCMD,
+		&web_resources.LessCompilerCMD,
+		&web_resources.LoremLpsumGeneratorCMD,
+		&web_resources.MexcioStateCMD,
+		&web_resources.MIMETypeListCMD,
+		&web_resources.SassCompilerCMD,
+		&web_resources.TimezoneListCMD,
+		&web_resources.URLParserCMD,
+		&web_resources.USAStateCMD,
 
-	// Web Resources
-	app.Commands = append(app.Commands, web_resources.CanadaProvinceCMD)
-	app.Commands = append(app.Commands, web_resources.ChinaProvinceCMD)
-	app.Commands = append(app.Commands, web_resources.HTMLEntitiesCMD)
-	app.Commands = append(app.Commands, web_resources.HTTPCodeCMD)
-	app.Commands = append(app.Commands, web_resources.I18nCMD)
-	app.Commands = append(app.Commands, web_resources.ISOCountryListCMD)
-	app.Commands = append(app.Commands, web_resources.LessCompilerCMD)
-	app.Commands = append(app.Commands, web_resources.LoremLpsumGeneratorCMD)
-	app.Commands = append(app.Commands, web_resources.MexcioStateCMD)
-	app.Commands = append(app.Commands, web_resources.MIMETypeListCMD)
-	app.Commands = append(app.Commands, web_resources.SassCompilerCMD)
-	app.Commands = append(app.Commands, web_resources.TimezoneListCMD)
-	app.Commands = append(app.Commands, web_resources.URLParserCMD)
-	app.Commands = append(app.Commands, web_resources.USAStateCMD)
-
-	// Fun
-	app.Commands = append(app.Commands, fun.ConsolePicCMD)
-
+		&fun.ConsolePicCMD,
+	}
+	app.HideHelpCommand = true
 	sort.Sort(cli.CommandsByName(app.Commands))
 	sort.Sort(cli.FlagsByName(app.Flags))
+	app.Action = func(c *cli.Context) error {
+		if c.Bool("i") {
+			tools.InteractiveAction(c)
+		} else {
+			show()
+		}
+		return nil
+	}
 	err := app.Run(os.Args)
 	if err != nil {
 		log.Fatal(err)

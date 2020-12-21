@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/c-bata/go-prompt"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 type RequestContext struct {
@@ -163,14 +163,14 @@ func completer(in prompt.Document) []prompt.Suggest {
 var RequestCMD = cli.Command{
 	Name:    "request",
 	Aliases: []string{"rq"},
-	Usage:   "send http request,more friendly",
+	Usage:   "发送HTTP请求",
 	Flags: []cli.Flag{
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:  "baseurl, bu",
 			Value: "localhost",
 			Usage: "target `URL`",
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:  "config, c",
 			Usage: "Load configuration from `FILE`",
 		},

@@ -1,6 +1,6 @@
 package code_minifiers_beautifiers
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 // JavascriptMinifierCMD JS代码压缩命令
 var JavascriptMinifierCMD = cli.Command{

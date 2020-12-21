@@ -7,13 +7,13 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 var JSON2XMLCMD = cli.Command{
 	Name:     "json2xml",
 	Aliases:  []string{"c2x"},
-	Usage:    "convert a JSON file into an xml file",
+	Usage:    "JSON转换为xml",
 	Category: "转换器",
 	Action: func(c *cli.Context) error {
 

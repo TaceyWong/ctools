@@ -1,6 +1,6 @@
 package code_minifiers_beautifiers
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 // CSSMinifierCMD css压缩命令
 var CSSMinifierCMD = cli.Command{

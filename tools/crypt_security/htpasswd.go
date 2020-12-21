@@ -15,7 +15,7 @@ htpasswd tool
 import (
 	"fmt"
 
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 	"gopkg.in/AlecAivazis/survey.v1"
 	// surveyCore "gopkg.in/AlecAivazis/survey.v1/core"
 )
@@ -27,14 +27,14 @@ import (
 var HtpasswdCMD = cli.Command{
 	Name:    "htpasswd",
 	Aliases: []string{"hp"},
-	Usage:   "gen httpassword",
+	Usage:   "生成httpassword",
 	Flags: []cli.Flag{
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:  "lang, l",
 			Value: "english",
 			Usage: "Language for this",
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:  "config, c",
 			Usage: "Load configuration from `FILE`",
 		},

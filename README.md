@@ -144,7 +144,7 @@ COPYRIGHT:
 
 **ctools** uses these following third-party toolkits mainly：
 
-+ [cli](https://github.com/urfave/cli) for parsing commandline args
++ [cli](https://github.com/urfave/cli/v2) for parsing commandline args
 + [viper](https://github.com/spf13/viper) for loading configuration
 + [gocui](https://github.com/jroimartin/gocui) for Console UI (some tools maybe use it)
 + [go-prompt](https://github.com/c-bata/go-prompt) for interactive prompts
@@ -161,7 +161,7 @@ description of tool
 */
 
 import (
-    "github.com/urfave/cli"
+    "github.com/urfave/cli/v2"
     //what import
 )
 

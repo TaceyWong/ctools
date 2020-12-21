@@ -1,12 +1,12 @@
 package validators
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var XMLValidCMD = cli.Command{
 	Name:     "xml_valid",
 	Aliases:  []string{"xv"},
-	Usage:    "Validates the XML string/file against the specified XSD string/file",
-	Category: "Validators",
+	Usage:    "验证XML是否符合XSD规范",
+	Category: "验证器",
 	Action: func(c *cli.Context) error {
 		return nil
 	},
