@@ -6,7 +6,7 @@ var XMLFormatCMD = cli.Command{
 	Name:     "xml_format",
 	Aliases:  []string{"hf"},
 	Usage:    "Format XML Text",
-	Category: "Formatters",
+	Category: "格式化器",
 	Action: func(c *cli.Context) error {
 		return nil
 	},

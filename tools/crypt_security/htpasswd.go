@@ -39,7 +39,7 @@ var HtpasswdCMD = cli.Command{
 			Usage: "Load configuration from `FILE`",
 		},
 	},
-	Category: "Cryptography & Security",
+	Category: "加密安全",
 	Action: func(c *cli.Context) error {
 		HTPasswd()
 		return nil

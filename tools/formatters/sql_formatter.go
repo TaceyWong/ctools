@@ -6,7 +6,7 @@ var SQLFormatCMD = cli.Command{
 	Name:     "sql_format",
 	Aliases:  []string{"sf"},
 	Usage:    "Format SQL Text",
-	Category: "Formatters",
+	Category: "格式化器",
 	Action: func(c *cli.Context) error {
 		return nil
 	},

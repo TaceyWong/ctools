@@ -6,7 +6,7 @@ var DigesterCMD = cli.Command{
 	Name:     "digester",
 	Aliases:  []string{"digest"},
 	Usage:    "Computes a digest from a string using different algorithms.",
-	Category: "Cryptography & Security",
+	Category: "加密安全",
 	Action: func(c *cli.Context) error {
 		return nil
 	},

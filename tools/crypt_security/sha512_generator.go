@@ -6,7 +6,7 @@ var SHA512GeneratorCMD = cli.Command{
 	Name:     "sha512_gen",
 	Aliases:  []string{"sha512_g"},
 	Usage:    "Computes a digest from a string using SHA-512. ",
-	Category: "Cryptography & Security",
+	Category: "加密安全",
 	Action: func(c *cli.Context) error {
 		return nil
 	},

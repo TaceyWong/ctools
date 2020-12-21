@@ -6,7 +6,7 @@ var MexcioStateCMD = cli.Command{
 	Name:     "mexico_state",
 	Aliases:  []string{"mexcio_s"},
 	Usage:    "snippets to generate a list state for Canada",
-	Category: "Web Resources",
+	Category: "网页资源",
 	Action: func(c *cli.Context) error {
 		return nil
 	},

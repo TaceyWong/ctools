@@ -6,7 +6,7 @@ var QRCodeCMD = cli.Command{
 	Name:     "qrcode",
 	Aliases:  []string{"qr"},
 	Usage:    "Generate QR Codes & Decode QR-Pic",
-	Category: "Encoders & Decoders",
+	Category: "编码解码",
 	Action: func(c *cli.Context) error {
 		return nil
 	},

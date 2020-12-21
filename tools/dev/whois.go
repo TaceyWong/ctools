@@ -20,7 +20,7 @@ var WhoisCMD = cli.Command{
 	Name:    "whois",
 	Aliases: []string{"ws"},
 	Usage:   "查询Whois信息",
-	Category: "tools for dev",
+	Category: "开发工具",
 	Action:  Whois,
 }
 

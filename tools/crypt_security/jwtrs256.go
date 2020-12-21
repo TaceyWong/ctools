@@ -12,7 +12,7 @@ var JWTRS256GeneratorCMD = cli.Command{
 	Name:     "jwt_rs256",
 	Aliases:  []string{"jwt_256"},
 	Usage:    "生成jwt-rs256公钥私钥",
-	Category: "Cryptography & Security",
+	Category: "加密安全",
 	Action: func(c *cli.Context) error {
 		certsDir := "certs"
 		os.RemoveAll(certsDir)

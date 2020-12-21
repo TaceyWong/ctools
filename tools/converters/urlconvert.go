@@ -8,7 +8,7 @@ var URL2BTCMD = cli.Command{
 	Name:     "url2bt",
 	Aliases:  []string{"c2x"},
 	Usage:    "convert a url-str into bt-str(xunlei-kuaiche-xuanfeng)",
-	Category: "Converters",
+	Category: "转换器",
 	Action: func(c *cli.Context) error {
 
 		return nil

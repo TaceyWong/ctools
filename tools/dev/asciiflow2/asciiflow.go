@@ -18,7 +18,7 @@ var AsciiFlowCMD = cli.Command{
 	Name:     "asciiflow",
 	Aliases:  []string{"af"},
 	Usage:    "tool of drawing ascii flow.",
-	Category: "Dev-Tool",
+	Category: "开发工具",
 	Action: func(c *cli.Context) error {
 		asciiflow()
 		return nil

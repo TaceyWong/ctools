@@ -14,7 +14,7 @@ var JSON2XMLCMD = cli.Command{
 	Name:     "json2xml",
 	Aliases:  []string{"c2x"},
 	Usage:    "convert a JSON file into an xml file",
-	Category: "Converters",
+	Category: "转换器",
 	Action: func(c *cli.Context) error {
 
 		return nil
