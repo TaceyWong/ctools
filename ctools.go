@@ -16,18 +16,15 @@ import (
 	"time"
 
 	"github.com/TaceyWong/ctools/tools"
-	"github.com/TaceyWong/ctools/tools/converters"
 	"github.com/TaceyWong/ctools/tools/code_minifiers_beautifiers"
+	"github.com/TaceyWong/ctools/tools/converters"
 	"github.com/TaceyWong/ctools/tools/crypt_security"
 	"github.com/TaceyWong/ctools/tools/encoders_decoders"
 	"github.com/TaceyWong/ctools/tools/formatters"
+	"github.com/TaceyWong/ctools/tools/fun"
 	"github.com/TaceyWong/ctools/tools/string_utils"
 	"github.com/TaceyWong/ctools/tools/validators"
 	"github.com/TaceyWong/ctools/tools/web_resources"
-	"github.com/TaceyWong/ctools/tools/fun"
-
-
-
 
 	. "github.com/TaceyWong/ctools/tools/dev/asciiflow2"
 
@@ -109,7 +106,6 @@ func ctools() {
 	app.Commands = append(app.Commands, tools.RequestCMD)
 	app.Commands = append(app.Commands, tools.ShortMeCMD)
 
-
 	// Converters
 	app.Commands = append(app.Commands, converters.JSON2GoCMD)
 	app.Commands = append(app.Commands, converters.JSON2XMLCMD)
@@ -128,7 +124,7 @@ func ctools() {
 	app.Commands = append(app.Commands, code_minifiers_beautifiers.JavascriptBeautifierCMD)
 	app.Commands = append(app.Commands, code_minifiers_beautifiers.JavascriptMinifierCMD)
 
-    // Crypt & Security
+	// Crypt & Security
 	app.Commands = append(app.Commands, crypt_security.DigesterCMD)
 	app.Commands = append(app.Commands, crypt_security.HMACGeneratorCMD)
 	app.Commands = append(app.Commands, crypt_security.HtpasswdCMD)
@@ -137,13 +133,12 @@ func ctools() {
 	app.Commands = append(app.Commands, crypt_security.SHA512GeneratorCMD)
 	app.Commands = append(app.Commands, crypt_security.JWTRS256GeneratorCMD)
 
-
-    // Encoders & Decoders
+	// Encoders & Decoders
 	app.Commands = append(app.Commands, encoders_decoders.Base64CMD)
 	app.Commands = append(app.Commands, encoders_decoders.QRCodeCMD)
 	app.Commands = append(app.Commands, encoders_decoders.URLEncodeDecodeCMD)
 
-    // Formatters
+	// Formatters
 	app.Commands = append(app.Commands, formatters.HTMLFormatCMD)
 	app.Commands = append(app.Commands, formatters.JSONFormatCMD)
 	app.Commands = append(app.Commands, formatters.NginxConfigFormatCMD)
@@ -167,7 +162,6 @@ func ctools() {
 	app.Commands = append(app.Commands, validators.XMLValidCMD)
 	app.Commands = append(app.Commands, validators.XPathTestCMD)
 
-
 	// Web Resources
 	app.Commands = append(app.Commands, web_resources.CanadaProvinceCMD)
 	app.Commands = append(app.Commands, web_resources.ChinaProvinceCMD)
@@ -175,7 +169,7 @@ func ctools() {
 	app.Commands = append(app.Commands, web_resources.HTTPCodeCMD)
 	app.Commands = append(app.Commands, web_resources.I18nCMD)
 	app.Commands = append(app.Commands, web_resources.ISOCountryListCMD)
-	app.Commands = append(app.Commands, web_resources.LessCompilerCMD )
+	app.Commands = append(app.Commands, web_resources.LessCompilerCMD)
 	app.Commands = append(app.Commands, web_resources.LoremLpsumGeneratorCMD)
 	app.Commands = append(app.Commands, web_resources.MexcioStateCMD)
 	app.Commands = append(app.Commands, web_resources.MIMETypeListCMD)
@@ -183,12 +177,10 @@ func ctools() {
 	app.Commands = append(app.Commands, web_resources.TimezoneListCMD)
 	app.Commands = append(app.Commands, web_resources.URLParserCMD)
 	app.Commands = append(app.Commands, web_resources.USAStateCMD)
+	app.Commands = append(app.Commands, web_resources.NameBetaCMD)
 
-
-    // Fun
+	// Fun
 	app.Commands = append(app.Commands, fun.ConsolePicCMD)
-
-
 
 	sort.Sort(cli.CommandsByName(app.Commands))
 	sort.Sort(cli.FlagsByName(app.Flags))
