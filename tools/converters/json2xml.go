@@ -7,7 +7,7 @@ import (
 	"io"
 	"strconv"
 
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 var JSON2XMLCMD = cli.Command{

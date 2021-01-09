@@ -4,7 +4,7 @@ import (
 	"os"
 	"log"
 	"github.com/TaceyWong/ctools/utils"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 // JWTRS256GeneratorCMD 生成jwt-rs256公钥私钥的命令界面

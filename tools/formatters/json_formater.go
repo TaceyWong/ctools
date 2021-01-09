@@ -1,6 +1,6 @@
 package formatters
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var JSONFormatCMD = cli.Command{
 	Name:     "json_format",

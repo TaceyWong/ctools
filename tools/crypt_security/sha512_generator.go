@@ -1,6 +1,6 @@
 package crypt_security
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var SHA512GeneratorCMD = cli.Command{
 	Name:     "sha512_gen",

@@ -9,7 +9,7 @@
 package dev
 
 import (
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 	"github.com/levigross/grequests"
 	"net/url"
 	"fmt"

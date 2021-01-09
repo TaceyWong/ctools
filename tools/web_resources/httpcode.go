@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/c-bata/go-prompt"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 var HTTPCodeCMD = cli.Command{
@@ -12,12 +12,12 @@ var HTTPCodeCMD = cli.Command{
 	Aliases: []string{"hc"},
 	Usage:   "search http code info",
 	Flags: []cli.Flag{
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:  "lang, l",
 			Value: "english",
 			Usage: "Language for this",
 		},
-		cli.StringFlag{
+		&cli.StringFlag{
 			Name:  "config, c",
 			Usage: "Load configuration from `FILE`",
 		},
@@ -27,7 +27,6 @@ var HTTPCodeCMD = cli.Command{
 		return nil
 	},
 }
-
 
 // HTTPCode x
 func HTTPCode() {
@@ -49,29 +48,27 @@ func suggester(d prompt.Document) []prompt.Suggest {
 
 // StatusCode holds info http status code
 type StatusCode struct {
-	Code string
-	Cate string
+	Code      string
+	Cate      string
 	ShortDesc string
-	LongDesc string
+	LongDesc  string
 }
 
-func (c *StatusCode)String() string{
-	return c.Code+c.Cate+c.ShortDesc+c.LongDesc
+func (c *StatusCode) String() string {
+	return c.Code + c.Cate + c.ShortDesc + c.LongDesc
 }
 
 var codes = []*StatusCode{
 	{
-		Code: "100",
-		Cate: "信息响应",
+		Code:      "100",
+		Cate:      "信息响应",
 		ShortDesc: "Continue",
-		LongDesc: `这个临时响应表明，迄今为止的所有内容都是可行的，客户端应该继续请求，如果已经完成，则忽略它。`,
+		LongDesc:  `这个临时响应表明，迄今为止的所有内容都是可行的，客户端应该继续请求，如果已经完成，则忽略它。`,
 	},
 	{
-		Code:"101",
-		Cate:"信息响应",
-		ShortDesc:"Switching Protocol",
-		LongDesc:`该代码是响应客户端的 Upgrade 标头发送的，并且指示服务器也正在切换的协议。`,
+		Code:      "101",
+		Cate:      "信息响应",
+		ShortDesc: "Switching Protocol",
+		LongDesc:  `该代码是响应客户端的 Upgrade 标头发送的，并且指示服务器也正在切换的协议。`,
 	},
 }
-
-

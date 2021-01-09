@@ -1,6 +1,6 @@
 package crypt_security
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var DigesterCMD = cli.Command{
 	Name:     "digester",

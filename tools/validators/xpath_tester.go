@@ -1,6 +1,6 @@
 package validators
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var XPathTestCMD = cli.Command{
 	Name:     "xpath_test",

@@ -1,6 +1,6 @@
 package formatters
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var NginxConfigFormatCMD = cli.Command{
 	Name:     "nginx_conf_format",

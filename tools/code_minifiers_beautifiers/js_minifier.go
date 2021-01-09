@@ -1,6 +1,6 @@
 package code_minifiers_beautifiers
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var JavascriptMinifierCMD = cli.Command{
 	Name:     "javascript_mini",

@@ -1,6 +1,6 @@
 package converters
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var JSON2GoCMD = cli.Command{
 	Name:     "json2go",

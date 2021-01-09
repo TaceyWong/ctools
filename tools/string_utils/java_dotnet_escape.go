@@ -1,6 +1,6 @@
 package string_utils
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var JavaDotNetEscapeCMD = cli.Command{
 	Name:     "java_dotnet_escape",

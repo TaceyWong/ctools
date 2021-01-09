@@ -1,6 +1,6 @@
 package converters
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 // 原始地址支持迅雷,快车,旋风的下载地址互转.
 

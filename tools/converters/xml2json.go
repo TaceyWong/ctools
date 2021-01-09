@@ -1,6 +1,6 @@
 package converters
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var XML2JSONCMD = cli.Command{
 	Name:     "xml2json",

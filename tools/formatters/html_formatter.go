@@ -1,6 +1,6 @@
 package formatters
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var HTMLFormatCMD = cli.Command{
 	Name:     "html_format",

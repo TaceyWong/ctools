@@ -1,6 +1,6 @@
 package web_resources
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var USAStateCMD = cli.Command{
 	Name:     "usa_state",

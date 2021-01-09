@@ -6,7 +6,7 @@ import (
 
 	rice "github.com/GeertJohan/go.rice"
 	"github.com/TaceyWong/ctools/pkg/open"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 /*启动静态Web服务器

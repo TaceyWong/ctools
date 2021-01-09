@@ -1,6 +1,6 @@
 package crypt_security
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var MD5GeneratorCMD = cli.Command{
 	Name:     "md5_gen",

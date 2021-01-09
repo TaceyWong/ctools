@@ -1,6 +1,6 @@
 package encoders_decoders
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var Base64CMD = cli.Command{
 	Name:     "base64",

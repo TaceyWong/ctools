@@ -14,7 +14,7 @@ import (
 	"github.com/briandowns/spinner"
 	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 // NameBetaCMD https://github.com/TimothyYe/namebeta
@@ -25,10 +25,10 @@ var NameBetaCMD = cli.Command{
 	Usage:     "command line domain query tool",
 	Category:  "Web Resources",
 	Flags: []cli.Flag{
-		cli.BoolFlag{
+		&cli.BoolFlag{
 			Name:  "more, m",
 			Usage: "Query more results with input domain",
-		}, cli.BoolFlag{
+		}, &cli.BoolFlag{
 			Name:  "whois,w",
 			Usage: "Query WHOIS information with input domain",
 		},
@@ -49,10 +49,10 @@ const (
 )
 
 func nameBetaAction(c *cli.Context) (err error) {
-	if len(c.Args()) == 0 {
+	if c.Args().Len() == 0 {
 		cli.ShowCommandHelpAndExit(c, c.Command.Name, 0)
 	}
-	for _, domain := range c.Args() {
+	for _, domain := range c.Args().Slice() {
 		fmt.Printf("Query [%s]'s ", color.HiBlueString(domain))
 		if c.Bool("whois") {
 			fmt.Println("whois")

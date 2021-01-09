@@ -1,6 +1,6 @@
 package crypt_security
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var HMACGeneratorCMD = cli.Command{
 	Name:     "hmac_gen",

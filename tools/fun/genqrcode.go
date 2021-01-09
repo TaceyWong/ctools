@@ -10,7 +10,7 @@ package fun
 
 
 import (
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 	qrcode "github.com/skip2/go-qrcode"
 )
 //https://github.com/boombuler/barcode

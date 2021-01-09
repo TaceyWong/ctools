@@ -1,6 +1,6 @@
 package formatters
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var SQLFormatCMD = cli.Command{
 	Name:     "sql_format",

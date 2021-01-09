@@ -1,6 +1,6 @@
 package validators
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var JSONValidCMD = cli.Command{
 	Name:     "json_valid",

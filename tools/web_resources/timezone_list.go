@@ -1,6 +1,6 @@
 package web_resources
 
-import "github.com/urfave/cli"
+import "github.com/urfave/cli/v2"
 
 var TimezoneListCMD = cli.Command{
 	Name:     "timezone_list",
