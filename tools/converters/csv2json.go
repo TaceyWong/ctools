@@ -5,8 +5,8 @@ import "github.com/urfave/cli/v2"
 var CSV2JSONCMD = cli.Command{
 	Name:     "csv2json",
 	Aliases:  []string{"c2j"},
-	Usage:    "convert a CSV file into an JSON file",
-	Category: "Converters",
+	Usage:    "CSV转换为JSON",
+	Category: "转换工具",
 	Action: func(c *cli.Context) error {
 		return nil
 	},
